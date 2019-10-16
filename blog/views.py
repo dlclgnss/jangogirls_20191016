@@ -13,7 +13,7 @@ def post_list(request):
     }
     return render(request,'blog/post_list.html',ctx)
 
-#상세 페이지
+#상세 페이지 
 def post_detail(request,post_pk):
     #예를 들어 pk = 100 이다 그럼 그페이지를 찾기이해서
     #post = Post.objects.get(pk = post_pk )  #post_pk⇒인자로 받은값
