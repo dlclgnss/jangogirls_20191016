@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block body %}
+<div class="post">
+    <div class="date">
+        <p>published: {{ post.published_date }}</p>
+    </div>
+    {% if user.is_authenticated %}
+    <a class="btn btn-default" href="{% url 'post_edit' post_pk=post.pk %}">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+    {% endif %}
+    <h1><a href="">{{ post.title }}</a></h1>
+    <p>{{ post.text|linebreaksbr | urlize}}</p>
+</div>
+{%  endblock %}
