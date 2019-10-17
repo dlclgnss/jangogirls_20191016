@@ -17,6 +17,19 @@
              <a href="{% url 'post_new' %}" class="top-menu">
                <span class="glyphicon glyphicon-plus"></span>
              </a>
+             <a href="{% url 'post_draft_list' %}" class="top-menu">
+               <span class="glyphicon glyphicon-edit"></span>
+             </a>
+             
+              <a href="{% url 'logout' %}" class="top-menu">
+                <span class="top-menu2" onclick="return confirm('Logout OK?')">LOGOUT</span>
+              </a>
+                <p class="top-menu2" > Hello chihoon's!  </p>
+
+          {% else %}                      <!--그페이지에서 로그인이 된다.-->
+             <a href="{% url 'login' %}?next={{request.path}}" class="top-menu">
+               <span class="glyphicon glyphicon-lock"></span>
+             </a>
           {% endif %}
              <h1><a href="/">Hoony's Django Study Blog!</a></h1>
       </div>

@@ -2,15 +2,25 @@
 
 {% block body %}
 <div class="post">
+  {% if post.published_date %}
     <div class="date">
         <p>published: {{ post.published_date }}</p>
     </div>
+  {% else %}
+      <a class="btn btn-default" href="{% url 'post_publish' post_pk=post.pk %}">publish</a>
+  {% endif %}
+
     {% if user.is_authenticated %}
     <a class="btn btn-default" href="{% url 'post_edit' post_pk=post.pk %}">
       <span class="glyphicon glyphicon-pencil"></span>
+    </a>
+    <a class="btn btn-default" onclick="return confirm('정말로 삭제 하시겠습니까?')"
+      href="{% url 'post_remove' post_pk=post.pk %}">
+      <span class="glyphicon glyphicon-remove"></span>
     </a>
     {% endif %}
     <h1><a href="">{{ post.title }}</a></h1>
     <p>{{ post.text|linebreaksbr | urlize}}</p>
 </div>
+
 {%  endblock %}

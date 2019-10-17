@@ -13,7 +13,7 @@ class Post(models.Model):
 
     #발행전이랑 발행후를 구별해주기위한 함수 기본은 발행하지 않은상태
     def publish(self):
-        self.published_date = timezone.now
+        self.published_date = timezone.now()
         self.save()
 
     def __str__(self):
